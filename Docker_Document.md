@@ -338,9 +338,9 @@ sudo docker container stop (container_id)
 
 >2fab2ad8f10e
 
- CONTAINER ID|IMAGE |COMMAND    |CREATED    |STATUS           |PORTS |NAMES
-------------|------|-----------|------------|-----------------|------|---------
-2fab2ad8f10e|ubuntu|"/bin/bash"|18 hours ago|Exited (137) 17 seconds ago |      |clever_chebyshev
+ CONTAINER ID|IMAGE |COMMAND    |CREATED     |STATUS                      |PORTS |NAMES
+-------------|------|-----------|------------|----------------------------|------|-----------------
+2fab2ad8f10e |ubuntu|"/bin/bash"|18 hours ago|Exited (137) 17 seconds ago |      |clever_chebyshev
 
 ## To Remove all stopped containers
 
