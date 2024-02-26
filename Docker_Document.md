@@ -1,11 +1,12 @@
 # Table of Content
-[Intoduction to Docker](#introduction-to-docker)  
+[Intoduction to Docker](#introduction-to-docker)   
 [Advantages of Docker](#advantages-of-docker)  
 [Prerequisites](#prerequisites)  
 [Installation Step](#installation-step)  
 [Working of Docker](#working-of-docker)  
 [Docker Volume](#docker-volume)  
 [Docker Network](#docker-network)  
+[References](#references)
 
 
 
@@ -206,6 +207,20 @@ Status: Downloaded newer image for hello-world:latest
 
  # Working Of Docker
 
+* Docker is a platform for developers and system administrators to develop, deploy, and run applications in containers. Containers are isolated environments that contain everything an application needs to run, including code, runtime, system tools, system libraries and settings.  
+* Docker containers are lightweight and portable, which makes them ideal for running applications in the cloud. They can be easily scaled up or down, and they can be deployed to any environment that supports Docker.  
+* Docker uses a client-server architecture. The Docker client is a command-line tool that you use to interact with the Docker daemon. The Docker daemon is a service that runs on the host machine and manages the containers.  
+* To use Docker, you first need to install the Docker client and daemon. Once you have installed Docker, you can start creating and running containers.  
+* To create a container, you use the Docker build command. The Docker build command takes a Dockerfile as input. A Dockerfile is a text file that contains instructions for building a Docker image.  
+* A Docker image is a template for creating containers. It contains all of the files and settings that are needed to run an application.  
+* Once you have built a Docker image, you can use the Docker run command to create a container from the image. The Docker run command takes the name of the image as input and starts a new container from the image.  
+* The Docker run command also takes a number of options that you can use to configure the container. For example, you can specify the ports that the container should expose, the volumes that the container should mount, and the environment variables that the container should set.  
+* Once you have started a container, you can use the Docker exec command to run commands inside the container. The Docker exec command takes the name of the container as input and the command that you want to run as arguments.  
+* You can also use the Docker logs command to view the logs from a container. The Docker logs command takes the name of the container as input and displays the logs from the container.  
+* When you are finished with a container, you can use the Docker stop command to stop the container. The Docker stop command takes the name of the container as input and stops the container.  
+* You can also use the Docker rm command to remove a container. The Docker rm command takes the name of the container as input and removes the container.  
+* Docker is a powerful tool that can be used to develop, deploy, and run applications in containers. Containers are lightweight and portable, which makes them ideal for running applications in the cloud.  
+* Docker is a popular choice for running applications in production because it is easy to use and it provides a number of features that make it easy to manage containers.  
 ## Pull an Image
 ```
 sudo docker pull (image_name)
@@ -221,12 +236,28 @@ latest: Pulling from library/ubuntu
 Digest: sha256:6042500cf4b44023ea1894effe7890666b0c5c7871ed83a97c36c76ae560bb9b
 Status: Image is up to date for ubuntu:latest
 docker.io/library/ubuntu:latest
-
-### Image:
+> 
+### Docker Image:
 Definition: A lightweight, standalone, and executable package that includes everything needed to run a piece of software, including the code, runtime, libraries, and system tools.
 
-### Pulling an Image:
+## Pulling an Image:
 Definition: Downloading a Docker image from a registry or repository to the local machine.
+
+* This involves downloading an existing Docker image from a registry to your local Docker Engine.  
+* Think of it as downloading a pre-built software package that you can then use to run your application.  
+* You use the docker pull command followed by the image name and, optionally, the registry location and tag.  
+* For example, docker pull ubuntu:latest pulls the latest version of the "ubuntu" image from the default Docker Hub registry.
+
+# Docker Registory
+
+* A Docker registry is a repository that stores Docker images.  
+* It acts like a central location where users can find and share images.  
+* The most popular and default registry is Docker Hub, although several other public and private registries exist.  
+* You specify the registry location when pulling or pushing images using the format username/imagename:tag, where:  
+* username is your account name on the registry (optional for public registries like Docker Hub).  
+* imagename is the name of the image.  
+* tag is a version identifier for the image (optional, "latest" is the default).  
+
 
 ## To know the exists image
 
@@ -561,13 +592,19 @@ sudo docker pull (image_name):specific_version
 ```
 sudo docker image tag (image_name) (user_name)/(image_new_name)
 ```
-## To push our customise image on docker hub and anyone call the image
+
+## Pushing an Image on Docker hub
+
+* This involves taking an image you've built or modified and uploading it to a registry.  
+* This allows you to share your custom images with others or store them for future use.  
+* You use the docker push command followed by the image name and the desired registry location. For example, docker push myuser/my-app:latest pushes your image named "my-app" with the "latest" tag to the "myuser" repository in a specific registry.  
+ ### Docker Hub:
+ A cloud-based registry service provided by Docker for sharing container images. It allows developers to store and distribute Docker images publicly or privately.    
+ ## To push our customise image on docker hub and anyone call the image
 
 ```
 sudo docker push (dockerhub_username)/(image_name)
 ```
- ### Docker Hub:
- A cloud-based registry service provided by Docker for sharing container images. It allows developers to store and distribute Docker images publicly or privately.        
 
 ## To show the format changes images details
 
@@ -1010,4 +1047,11 @@ overlay    |Overlay networks connect multiple Docker daemons together.
 ipvlan     |IPvlan networks provide full control over both IPv4 and IPv6 addressing.
 macvlan    |Assign a MAC address to a container.
 
+
+
+# References
+
+* https://docs.docker.com/desktop/
+* https://hub.docker.com/
+* https://www.youtube.com/watch?v=ETBj0oxe81o&list=PL6XT0grm_Tfje2ySztzdhp0HmCjVj5P4z
 
