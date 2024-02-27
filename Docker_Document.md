@@ -281,6 +281,9 @@ A lightweight, standalone, and executable software package that includes everyth
 ```
 sudo docker container run -d (image_name) sleep (seconds)
 ```
+> -d - This option tells Docker to run the container in detached mode. This means the container will run in the background and the terminal won't be attached to the container's processes. You won't see any output from the container in the terminal where you ran the command.
+
+* This command creates and starts a detached container from the specified image and runs the sleep command for a certain duration in the background. It's important to replace (image_name) and (seconds) with the actual values you want to use.
 
 ## To know the exist running containers
 
@@ -311,6 +314,8 @@ sudo docker container ls -a
 ```
 sudo docker ps -a
 ```
+* These commands lists all containers, including both running and stopped ones, on your system. It uses sudo for potential privilege escalation, followed by docker container ls with the -a flag to specify displaying all containers.
+  
 ## To RUN container in bash shell and go in interactive terminal
 ```
 sudo docker container run -itd ubuntu /bin/bash
@@ -319,6 +324,8 @@ sudo docker container run -itd ubuntu /bin/bash
 ```
 docker exec -it CONTAINER_ID /bin/bash
 ```
+> -i: This flag stands for "interactive" and instructs Docker to keep the standard input (STDIN) open for the executed process. This allows you to type commands and receive output in the terminal.
+> -t: This flag stands for "pseudo-TTY" and allocates a pseudo-terminal (PTY) for the container. This provides a terminal-like environment inside the container, allowing you to use shell commands interactively.
 
 * The command is used to run a detached (-d) Docker container based on the Ubuntu image with an interactive (-it) session, starting the /bin/bash shell as the main process. It is also used when we want to installs any particular software in our container.
 
