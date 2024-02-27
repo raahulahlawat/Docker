@@ -252,18 +252,18 @@ Definition: Downloading a Docker image from a registry or repository to the loca
 * You use the docker pull command followed by the image name and, optionally, the registry location and tag.  
 * For example, docker pull ubuntu:latest pulls the latest version of the "ubuntu" image from the default Docker Hub registry.
 
-# Docker Registory
+# Docker Registry
 
 * A Docker registry is a repository that stores Docker images.  
 * It acts like a central location where users can find and share images.  
 * The most popular and default registry is Docker Hub, although several other public and private registries exist.  
-* You specify the registry location when pulling or pushing images using the format username/imagename:tag, where:  
+* You specify the registry location when pulling or pushing images using the format username/image name:tag, where:  
 * username is your account name on the registry (optional for public registries like Docker Hub).  
-* imagename is the name of the image.  
+* image name is the name of the image.  
 * tag is a version identifier for the image (optional, "latest" is the default).  
 
 
-## To know the exists image
+## To know the existing image
 
 ```
 sudo docker image ls
@@ -289,7 +289,7 @@ sudo docker container run -d (image_name) sleep (seconds)
 
 * This command creates and starts a detached container from the specified image and runs the sleep command for a certain duration in the background. It's important to replace (image_name) and (seconds) with the actual values you want to use.
 
-## To know the exist running containers
+## To know the existing running containers
 
 ```
 sudo docker container ls
@@ -308,9 +308,9 @@ CONTAINER ID|IMAGE |COMMAND    |CREATED        |STATUS        |  PORTS  |NAMES
 ```
 sudo docker container run (image_name)
 ```
-* This command can run the container but also exit immediatly
+* This command can run the container but also exit immediately
 
-## To know the all exist containers (Stopped/Exited Container)
+## To know the all existing containers (Stopped/Exited Container)
 
 ```
 sudo docker container ls -a
@@ -318,9 +318,9 @@ sudo docker container ls -a
 ```
 sudo docker ps -a
 ```
-* These commands lists all containers, including both running and stopped ones, on your system. It uses sudo for potential privilege escalation, followed by docker container ls with the -a flag to specify displaying all containers.
+* These commands list all containers, including both running and stopped ones, on your system. It uses sudo for potential privilege escalation, followed by docker container ls with the -a flag to specify displaying all containers.
   
-## To RUN container in bash shell and go in interactive terminal
+## To RUN container in a bash shell and go in interactive terminal
 ```
 sudo docker container run -itd ubuntu /bin/bash
 ```
@@ -333,11 +333,11 @@ docker exec -it CONTAINER_ID /bin/bash
 
 * The command is used to run a detached (-d) Docker container based on the Ubuntu image with an interactive (-it) session, starting the /bin/bash shell as the main process. It is also used when we want to installs any particular software in our container.
 
-## To go direct in interactive terminal shell use :
+## To go directly in interactive terminal shell use :
 ```
 docker container run -it ubuntu /bin/bash
 ``` 
-* If you want to come out from terminal shell without stopping container use :
+* If you want to come out from the terminal shell without stopping container use :
 ```
 ctrl + p + q
 ```
@@ -414,7 +414,7 @@ Error response from daemon: You cannot remove a running container bcf0157abab179
 sudo docker container inspect (container_id)
 ```
 
- ### If we want to know the logs of container we have to run the few commands before :
+ ### If we want to know the logs of the container we have to run a few commands before :
  ```
  Sudo docker container run -d (container_name)
  ```
@@ -429,13 +429,13 @@ then:
 sudo docker container logs (container_id)
 ```
 
-## To know the ongoing proccess in container (running container)
+## To know the ongoing process in a container (running container)
 
 ```
 sudo docker container top (container_id)
 ```
 
-## To know the state of the containers running in background (memory usage, cpu, etc.)
+## To know the state of the containers running in the background (memory usage, cpu, etc.)
 
 ```
 sudo docker container stats
@@ -458,15 +458,15 @@ sudo docker container run -d -p 3600:80 --name test1_web (image_name)
 ### Port mapping 
 Port mapping in Docker involves specifying how ports on the host system should be mapped to ports exposed by a container. This mapping allows external traffic to reach specific services running inside the container. Port mapping is particularly crucial when you have multiple containers running on a host, and you need to avoid port conflicts.
 
-### To know ip address of your machine use :
+### To know the IP address of your machine use :
 ```
 hostname -I
 ```
-### To know IP address of your container use :
+### To know the IP address of your container use :
 ```
 sudo docker container inspect container_id 
 ```
-## To get access of shell of the container if we want to install any particular software in the container
+## To get access to the shell of the container if we want to install any particular software in the container
 
 ```
 sudo docker container exec -it (container_id) /bin/bash
@@ -483,7 +483,7 @@ then :
 ```
 software_name --version
 ```
-## To change name of any Container 
+## To change the name of any Container 
 ```
 sudo docker container rename (container_id) (new_name)
 ```
@@ -493,7 +493,7 @@ sudo docker container rename (container_id) (new_name)
 sudo docker container restart (container_id)
 ```
 
-## To show the ongoing process in background at the terminal
+## To show the ongoing process in the background at the terminal
 ```
 sudo docker container attach (container_id)
 ```
@@ -503,7 +503,7 @@ sudo docker container attach (container_id)
 sudo docker container kill (container_id)
 ```
 
-## To wait for container to stop
+## To wait for the container to stop
 ```
 sudo docker container wait (container_id) 
 ```
@@ -565,40 +565,40 @@ A - Add a file / Directory
 C - Create file / Directory  
 D -  Delete file / Directory  
 
-## To show continously every changes we will make to container in every 2 second
+## To show continuously every change we will make to the container in every 2 second
 
 ```
 sudo watch 'docker container diff (container_id)'
 ```
 
-## To copy a file to container
+## To copy a file to the container
 
 ```
 sudo docker container cp (file_name)/(container_id):/(source_path)
 ```
 
-## To export container as file
+## To export container as a file
 ```
 sudo docker container export (container_id) >(file_name).tar
 ```
 
-## To import image from the container file
+## To import an image from the container file
 
 ```
 sudo docker image import (container_filename).tar (image_name)
 ```
-## To directly export a container and import as an image
+## To directly export a container and import it as an image
 
 ```
 sudo docker container commit --author "Name" (container_id) (image_name)
 ```
 
-## To pull specific version of an image
+## To pull a specific version of an image
 
 ```
 sudo docker pull (image_name):specific_version
 ```
-## To tag the image if we delete the first image it will contain all the files which is already installed in it
+## To tag the image if we delete the first image it will contain all the files which are already installed in it
 
 ```
 sudo docker image tag (image_name) (user_name)/(image_new_name)
@@ -632,10 +632,10 @@ sudo docker image ls --format '{{.ID}} , {{.Repository}}'
 sudo docker image history (image_name)
 ```
 
-* If there is an other tag or specific version of the image we have to declare
+* If there is another tag or specific version of the image we have to declare
 
 
-## To inspact the image
+## To inspect the image
 
 ```
 sudo docker image inspect (image_name) |less
@@ -658,7 +658,7 @@ sudo docker image load <(file_name)
 sudo docker image build -t (image_name):1 .
 ```
 
-* . is indicating that docker file is in current working directory
+* . indicates that the docker file is in the current working directory
 
 
 ## To remove image
@@ -672,10 +672,10 @@ sudo docker image rm ubuntu nginx hello-world
 
 ```
 ## Output
->Untagged: ubuntu:latest
+>Untagged: ubuntu: latest
 Untagged: ubuntu@sha256:6042500cf4b44023ea1894effe7890666b0c5c7871ed83a97c36c76ae560bb9b
 Deleted: sha256:174c8c134b2a94b5bb0b37d9a2b6ba0663d82d23ebf62bd51f74a2fd457333da
-Untagged: nginx:latest
+Untagged: nginx: latest
 Untagged: nginx@sha256:2bdc49f2f8ae8d8dc50ed00f2ee56d00385c6f8bc8a8b320d0a294d9e3b49026
 Deleted: sha256:d453dd892d9357f3559b967478ae9cbc417b52de66b53142f6c16c8a275486b9
 Deleted: sha256:efa10324a701d6accf82a523dcaba9aadf21943e214a8879d10c13284bffcd5f
@@ -685,14 +685,14 @@ Deleted: sha256:b4ad020cdacfccfc4faf3dcd7984f600391d3972063112dd2b37dfbd30105993
 Deleted: sha256:6f226612ab7aafdd91fcc90917ad3d7a667237a78785fe2309faf160559a69a7
 Deleted: sha256:9671ab29815f09e9c2552b872e0097732d4b5efb5dfdc91630853d7bf7221f1a
 Deleted: sha256:7292cf786aa89399bca4e3edd105d3b2ee0683a46ef1f5ff436c0f9d1d49e765
-Untagged: hello-world:latest
+Untagged: hello-world: latest
 Untagged: hello-world@sha256:ac69084025c660510933cca701f615283cdbb3aa0963188770b54c31c8962493
 Deleted: sha256:d2c94e258dcb3c5ac2798d32e1249e42ef01cba4841c2234249495f87264ac5a
 Deleted: sha256:ac28800ec8bb38d5c35b49d45a6ac4777544941199075dff8c4eb63e093aa81e
 
 
 
-## To create Docker file
+## To create a Docker file
 
 ```
 sudo vi Dockerfile
@@ -717,7 +717,7 @@ Specify default commands.
 COPY :	  
 Copy files and directories.  
 ENTRYPOINT	  
-Specify default executable.  
+Specify the default executable.  
 ENV :	  
 Set environment variables.  
 EXPOSE :	  
@@ -730,21 +730,21 @@ LABEL :
 Add metadata to an image.  
 MAINTAINER :  
 Specify the author of an image.  
-ONBUILD :  
+ON BUILD :  
 Specify instructions for when the image is used in a build.  
 RUN:  
 Execute build commands.  
 SHELL	Set the default shell of an image.  
 STOPSIGNA:  
 Specify the system call signal for exiting a container.  
-:set number :  
+: set number :  
 This will set numbers on our commands  
 USER :  
-Set user and group ID.  
+Set the user and group ID.  
 VOLUME:	  
 Create volume mounts.  
 WORKDIR:  
-Change working directory.  
+Change the working directory.  
 
 
 # Docker Volume
@@ -752,23 +752,23 @@ Change working directory.
 A Docker feature that allows data to persist beyond the lifecycle of a container. Volumes are used for storing and sharing data between containers.
 
 
-* If you want to use docker volume to retreive you old container data then you use docker volume. The data store in             
+* If you want to use docker volume to retrieve you old container data then you use docker volume. The data store in             
 "Volumes": {  
              "/var/lib/image_name": {}  
 },  
-  There are few steps how you can access your old container:
+  There are a few steps on how you can access your old container:
 
 ## Step 1 - 
 ## Run a Container
 ```
-sudo docker container run -d --name mysql1 -e MYSQL_ALLOW_EMPTY_PASSWORD=true mysql
+sudo docker container run -d --name mysql1 -e MYSQL_ALLOW_EMPTY_PASSWORD=true MySQL
 ```
 ## Output 
 
 >98eeb0b3707bed3dd7ee833576dfef248c7c9114bfc5b61ef2d18a13a2eb8c20
 
 ## Step 2 - 
-## To know exists Docker Volume
+## To know the existing Docker Volume
 ```
 sudo docker volume ls
 ```
@@ -800,7 +800,7 @@ sudo docker volume inspect 4364fa6d1b0fee8b6f08a165b13104e54af9ac0664a9faa6427ec
 ]
 
 ## Step 4 -
-## Go in in the volume directory by using :
+## Go to the volume directory by using :
 
 ```
 cd /var/lab/docker/volumes/(volume_name)
@@ -841,9 +841,9 @@ ls
  binlog.index  |'#ib_16384_0.dblwr'|'#innodb_redo'|performance_schema|sys
  ca-key.pem    |'#ib_16384_1.dblwr'|'#innodb_temp'|private_key.pem   |undo_001
 
-## Now We will save our data in database 
+## Now We will save our data in the database 
 
-## Run Container in which our database is stored (Go in terminal shell)
+## Run the Container in which our database is stored (Go in the terminal shell)
 
 ```
 sudo docker container exec -it (container_id) /bin/bash
@@ -865,11 +865,11 @@ create database (database_detail);
 sudo docker container exec -it 98ee bash
 ```
 ```
-mysql
+MySQL
 ```
 ## Output
->Welcome to the MySQL monitor.  Commands end with ; or \g.
-Your MySQL connection id is 9
+>Welcome to the MySQL monitor.  Commands end with; or \g.
+Your MySQL connection ID is 9
 Server version: 8.2.0 MySQL Community Server - GPL
 
 Copyright (c) 2000, 2023, Oracle and/or its affiliates.
@@ -935,9 +935,9 @@ docker container exec -it 434 bash
 then:
 
 ```
-mysql
+MySQL
 ```
-### In mysql
+### In MySQL
 ```
 show databases;
 ```
@@ -1030,13 +1030,13 @@ NETWORK ID    |NAME     |DRIVER   |SCOPE
 2a6e1526767d  |host     |host     |local
 a9bd3a5dd0ba  |one      |null     |local
 
-## To create new Docker Network
+## To create a new Docker Network
 
 ```
 sudo docker network create -d bridge (network_name)
 ```
 
- ### To creates a network using the bridge network driver and running a container in the created network:
+ ### To create a network using the bridge network driver and running a container in the created network:
 
 
 
